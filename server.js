@@ -1,8 +1,6 @@
 var express = require('express');
 var http = require('http')
 var app = express();
-const publicIP = 'localhost';
-const publicPort = 3000;
 var cors = require('cors');
 function normalizePort(val) {
   var port = parseInt(val, 10);
@@ -309,5 +307,5 @@ function sendEmail(toSendTo, descriere) {
 }
 
 preload();
-var server = http.createServer(app)
+http.createServer(app)
 //app.listen(publicPort, publicIP);
