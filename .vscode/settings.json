@@ -1,0 +1,8 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/4ee8f2ef-2afd-4cb5-9cba-01ec0b7d454b/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/impexserver",
+  "appService.deploySubpath": "."
+}
