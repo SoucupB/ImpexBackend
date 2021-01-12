@@ -1,14 +1,33 @@
 var express = require('express');
+var http = require('http')
 var app = express();
 const publicIP = 'localhost';
 const publicPort = 3000;
 var cors = require('cors');
-app.use(cors({origin: 'http://' + publicIP + ':' + publicPort}));
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+var port = normalizePort(process.env.PORT || '3000')
+app.set('port', port);
+//app.use(cors({origin: 'http://' + publicIP + ':' + publicPort}));
 var nodemailer = require('nodemailer');
 
 // comanda noua python -m http.server 8000 --bind 192.168.100.34 (aici sa iti pui IP-ul privat ca asta ii al meu de pe retea)
 
 const fs = require('fs');
+const { normalize } = require('path');
 let rawdata = fs.readFileSync('Database/dateDB.json');
 let remains = JSON.parse(rawdata);
 var imge = '../frontend-new/date_impexcera/';
@@ -290,4 +309,5 @@ function sendEmail(toSendTo, descriere) {
 }
 
 preload();
-app.listen(publicPort, publicIP);
+var server = http.createServer(app)
+//app.listen(publicPort, publicIP);
