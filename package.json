@@ -3,6 +3,9 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "http": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "nodemailer": "^6.4.17",
+    "path": "^0.12.7"
   }
 }
