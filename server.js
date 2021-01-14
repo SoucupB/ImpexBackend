@@ -2,27 +2,13 @@ var express = require('express');
 var http = require('http')
 var app = express();
 var cors = require('cors');
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
-}
-var publicIP = 'localhost';
+var publicIP = '0.0.0.0';
 var publicPort = '8080';
-app.use(cors({origin: 'http://' + publicIP + ':' + publicPort}));
 var nodemailer = require('nodemailer');
 const fs = require('fs');
 const { normalize } = require('path');
+app.use(cors({origin: 'http://' + publicIP + ':' + publicPort}));
+
 let rawdata = fs.readFileSync('Database/dateDB.json');
 let remains = JSON.parse(rawdata);
 var imge = '../frontend-new/date_impexcera/';
@@ -304,5 +290,4 @@ function sendEmail(toSendTo, descriere) {
 }
 
 preload();
-//http.createServer(app)
 app.listen(publicPort, publicIP);
