@@ -40,6 +40,14 @@ app.get('/portfolio', function(req, res){
   }
 });
 
+app.get('/mainPage', function(req, res){
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.send('Welcome to the application start!');
+})
+
 function filterBy(data, filterData, exclusiv) {
   if(filterData === undefined || filterData.length === 0) {
     return data;
