@@ -2,8 +2,9 @@ var express = require('express');
 var http = require('http')
 var app = express();
 var cors = require('cors');
-var publicIP = '0.0.0.0';
-var publicPort = '8080';
+var ip = require("ip");
+var publicIP = ip.address().toString();
+var publicPort = '3000';
 var nodemailer = require('nodemailer');
 const fs = require('fs');
 const { normalize } = require('path');
@@ -297,5 +298,6 @@ function sendEmail(toSendTo, descriere) {
   });
 }
 
+console.log("Listening to private port:", ip.address())
 preload();
 app.listen(publicPort, publicIP);

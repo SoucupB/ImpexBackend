@@ -5,6 +5,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
+    "ip": "^1.1.5",
     "nodemailer": "^6.4.17",
     "path": "^0.12.7"
   }
