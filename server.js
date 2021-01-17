@@ -271,6 +271,7 @@ app.get('/sendEmail', function(req, res) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   let email = req.query.email;
   let description = req.query.description;
+  console.log("Email sent to ", email)
   sendEmail(email, description);
   res.json({"Email": "Sent"})
 });
