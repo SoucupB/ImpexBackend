@@ -265,13 +265,14 @@ app.get('/getElementByID', function(req, res){
 
 //npm install nodemailer --save
 app.get('/sendEmail', function(req, res) {
+  console.log("DADADADADA")
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   res.setHeader('Access-Control-Allow-Credentials', true);
   let email = req.query.email;
   let description = req.query.description;
-  console.log("Email sent to ", email)
+ // console.log("Email sent to ", email)
   sendEmail(email, description);
   res.json({"Email": "Sent"})
 });
