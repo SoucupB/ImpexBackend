@@ -55,7 +55,7 @@ function filterBy(data, filterData, exclusiv) {
     return data;
   }
   for(var i = 0; i < filterData.length; i++) {
-    if(filterData[i][1] == 'all')
+    if(filterData[i][1] == 'Toate')
       return data;
   }
   return data.filter(function(item) {
@@ -155,7 +155,7 @@ app.get('/tips', function(req, res){
   var colectionDict = {};
   var colections = [];
   data = pruneBy(remains['colectii'], 'img');
-  colections.push(['all', data.length])
+  colections.push(['Toate', data.length])
   for(var i = 0; i < data.length; i++) {
     if(data) {
       var response = data[i]['tip'].replace(/\s/g, '');
