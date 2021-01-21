@@ -1,3 +1,4 @@
+var args = process.argv.slice(2);
 var express = require('express');
 var http = require('http')
 var app = express();
@@ -300,6 +301,9 @@ function sendEmail(toSendTo, descriere) {
   });
 }
 
-console.log("Listening to private port:", ip.address())
+if(args[0]=='-l' ||  args[0]=='--local') {
+  publicIP='127.0.0.1'
+}
+console.log("Listening to private port:", publicIP)
 preload();
 app.listen(publicPort, publicIP);
