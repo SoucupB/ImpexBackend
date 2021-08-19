@@ -3,7 +3,7 @@ var app = express();
 var cors = require('cors');
 
 const fs = require('fs');
-let rawdata = fs.readFileSync('../frontend-new/date_impexcera/dateDB.json');
+let rawdata = fs.readFileSync('../Test/prodImages/dateDB.json');
 let remains = JSON.parse(rawdata);
 let ids = 0;
 
